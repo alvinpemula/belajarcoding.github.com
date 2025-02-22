@@ -1,9 +1,7 @@
-<!DOCTYPE html><html lang="id">
-<head>
+<!DOCTYPE html><html lang="id"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar Python Lengkap</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.11.3/brython.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,60 +67,80 @@
         button:hover {
             background: #218838;
         }
-        pre code {
-            font-size: 16px;
-            display: block;
-            padding: 10px;
-            background: #222;
-            color: #fff;
-            border-radius: 5px;
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
         }
     </style>
 </head>
-<body onload="brython()">
+<body>
     <div class="header">Belajar Python dari Nol</div>
     <div class="container">
         <div class="section">
             <h2>Pengenalan Python</h2>
             <p>Python adalah bahasa pemrograman yang mudah dipelajari dan digunakan untuk berbagai tujuan.</p>
-        </div>
-        <div class="section">
-            <h2>Variabel dan Tipe Data</h2>
-            <pre><code>nama = "Budi"
-umur = 25
-is_student = True
-print(nama)
-print(umur)
-print(is_student)</code></pre>
-        </div>
-        <div class="section">
-            <h2>Struktur Percabangan</h2>
-            <pre><code>umur = 18
-if umur >= 18:
-    print("Dewasa")
-else:
-    print("Anak-anak")</code></pre>
-        </div>
-        <div class="section">
-            <h2>Perulangan</h2>
-            <pre><code>for i in range(5):
-    print(i)</code></pre>
-        </div>
-        <div class="section">
-            <h2>Fungsi</h2>
-            <pre><code>def sapa(nama):
-    print("Halo, " + nama)sapa("Budi")</code></pre> </div> <div class="section"> <h2>Dictionary</h2> <pre><code>data = { "nama": "Budi", "usia": 25 } print(data["nama"])</code></pre> </div> <div class="section"> <h2>List</h2> <pre><code>data = [1, 2, 3, 4] print(data[0])</code></pre> </div> <div class="section"> <h2>Set</h2> <pre><code>data = {1, 2, 3, 3, 2} print(data)</code></pre> </div> <div class="section"> <h2>Editor Python</h2> <textarea id="codeEditor">print("Hello, World!")</textarea> <button id="runButton">Jalankan Kode</button> <pre id="output"></pre> </div> </div> <script type="text/python"> from browser import document, console
+        </div><div class="section">
+        <h2>Variabel dan Tipe Data</h2>
+        <pre>
 
-def runPython(event):
-        code = document["codeEditor"].value
-        output_area = document["output"]
-        try:
-            exec(code, {})
-            output_area.text = "Kode berhasil dieksekusi"
-        except Exception as e:
-            output_area.text = str(e)
+nama = "Budi" umur = 25 is_student = True print(nama) print(umur) print(is_student) </pre> <p>Variabel digunakan untuk menyimpan data. Python memiliki berbagai tipe data, seperti string, integer, dan boolean.</p> </div>
 
-    document["runButton"].bind("click", runPython)
+<div class="section">
+        <h2>Struktur Percabangan</h2>
+        <pre>
+
+umur = 18 if umur >= 18: print("Dewasa") else: print("Anak-anak") </pre> <p>Percabangan digunakan untuk pengambilan keputusan berdasarkan kondisi yang diberikan.</p> </div>
+
+<div class="section">
+        <h2>Perulangan</h2>
+        <pre>
+
+for i in range(5): print(i) </pre> <p>Perulangan digunakan untuk menjalankan suatu blok kode secara berulang.</p> </div>
+
+<div class="section">
+        <h2>Fungsi</h2>
+        <pre>
+
+def sapa(nama): print("Halo, " + nama)
+
+sapa("Budi") </pre> <p>Fungsi digunakan untuk mengelompokkan kode yang dapat dipanggil berulang kali.</p> </div>
+
+<div class="section">
+        <h2>Dictionary</h2>
+        <pre>
+
+data = {"nama": "Budi", "usia": 25} print(data["nama"]) </pre> <p>Dictionary adalah struktur data yang menyimpan data dalam format key-value.</p> </div>
+
+<div class="section">
+        <h2>List</h2>
+        <pre>
+
+data = [1, 2, 3, 4] print(data[0]) </pre> <p>List adalah struktur data yang dapat menyimpan beberapa nilai dalam satu variabel.</p> </div>
+
+<div class="section">
+        <h2>Set</h2>
+        <pre>
+
+data = {1, 2, 3, 3, 2} print(data) </pre> <p>Set adalah kumpulan elemen unik tanpa urutan tertentu.</p> </div>
+
+<div class="section">
+        <h2>Editor Python</h2>
+        <textarea id="codeEditor">print("Hello, World!")</textarea>
+        <button onclick="runCode()">Jalankan Kode</button>
+        <iframe id="outputFrame"></iframe>
+    </div>
+</div>
+
+<script>
+    function runCode() {
+        let code = document.getElementById("codeEditor").value;
+        let outputFrame = document.getElementById("outputFrame").contentWindow.document;
+        outputFrame.open();
+        outputFrame.write("<script>" + code + "<\/script>");
+        outputFrame.close();
+    }
 </script>
 
 </body>
