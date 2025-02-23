@@ -1,147 +1,120 @@
-<!DOCTYPE html><html lang="id"><head>
+<!DOCTYPE html><html lang="id">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belajar Python Lengkap</title>
+    <title>HTML Obfuscator Pro</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .header {
-            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
             color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
+            background: black;
+        }
+        .background-video {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            object-fit: cover;
+            z-index: -1;
         }
         .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+            width: 450px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
         }
-        .section {
-            margin-bottom: 30px;
-            padding: 15px;
-            border-left: 5px solid #007BFF;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        h2 {
-            color: #007BFF;
-        }
-        pre {
-            background: #222;
-            color: #fff;
-            padding: 15px;
-            border-radius: 5px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        textarea, button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+            border: none;
         }
         textarea {
-            width: 100%;
-            height: 150px;
-            font-size: 16px;
+            height: 100px;
+            background: #222;
+            color: white;
             font-family: monospace;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-top: 10px;
+            resize: none;
         }
         button {
-            display: block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background: #28a745;
+            background: linear-gradient(45deg, #ff9800, #ff5722);
             color: white;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
         button:hover {
-            background: #218838;
+            background: linear-gradient(45deg, #ff5722, #ff9800);
+            transform: scale(1.05);
         }
-        iframe {
-            width: 100%;
-            height: 200px;
-            border: 1px solid #ccc;
+        .output {
+            background: #333;
+            color: #fff;
+            height: 120px;
+            overflow-y: auto;
+        }
+        #sizeInfo { font-size: 14px; color: #ddd; }
+        footer {
             margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
-    <div class="header">Belajar Python dari Nol</div>
+    <video class="background-video" autoplay loop muted>
+        <source src="https://files.catbox.moe/k7a16t.mp4" type="video/mp4">
+    </video>
+    <audio id="bgAudio">
+        <source src="https://files.catbox.moe/v3mcsm.mp3" type="audio/mp3">
+    </audio>
     <div class="container">
-        <div class="section">
-            <h2>Pengenalan Python</h2>
-            <p>Python adalah bahasa pemrograman yang mudah dipelajari dan digunakan untuk berbagai tujuan.</p>
-        </div><div class="section">
-        <h2>Variabel dan Tipe Data</h2>
-        <pre>
-
-nama = "Budi" umur = 25 is_student = True print(nama) print(umur) print(is_student) </pre> <p>Variabel digunakan untuk menyimpan data. Python memiliki berbagai tipe data, seperti string, integer, dan boolean.</p> </div>
-
-<div class="section">
-        <h2>Struktur Percabangan</h2>
-        <pre>
-
-umur = 18 if umur >= 18: print("Dewasa") else: print("Anak-anak") </pre> <p>Percabangan digunakan untuk pengambilan keputusan berdasarkan kondisi yang diberikan.</p> </div>
-
-<div class="section">
-        <h2>Perulangan</h2>
-        <pre>
-
-for i in range(5): print(i) </pre> <p>Perulangan digunakan untuk menjalankan suatu blok kode secara berulang.</p> </div>
-
-<div class="section">
-        <h2>Fungsi</h2>
-        <pre>
-
-def sapa(nama): print("Halo, " + nama)
-
-sapa("Budi") </pre> <p>Fungsi digunakan untuk mengelompokkan kode yang dapat dipanggil berulang kali.</p> </div>
-
-<div class="section">
-        <h2>Dictionary</h2>
-        <pre>
-
-data = {"nama": "Budi", "usia": 25} print(data["nama"]) </pre> <p>Dictionary adalah struktur data yang menyimpan data dalam format key-value.</p> </div>
-
-<div class="section">
-        <h2>List</h2>
-        <pre>
-
-data = [1, 2, 3, 4] print(data[0]) </pre> <p>List adalah struktur data yang dapat menyimpan beberapa nilai dalam satu variabel.</p> </div>
-
-<div class="section">
-        <h2>Set</h2>
-        <pre>
-
-data = {1, 2, 3, 3, 2} print(data) </pre> <p>Set adalah kumpulan elemen unik tanpa urutan tertentu.</p> </div>
-
-<div class="section">
-        <h2>Editor Python</h2>
-        <textarea id="codeEditor">print("Hello, World!")</textarea>
-        <button onclick="runCode()">Jalankan Kode</button>
-        <iframe id="outputFrame"></iframe>
+        <h2>HTML Obfuscator Pro</h2>
+        <button id="toggleAudio">Play Music</button>
+        <textarea id="inputText" placeholder="Masukkan kode HTML Anda..."></textarea>
+        <p>Gunakan alat ini untuk mengubah HTML Anda menjadi bentuk terenkripsi.</p>
+        <button onclick="obfuscateHtml()">Obfuscate</button>
+        <textarea class="output" id="outputText" readonly></textarea>
+        <button onclick="copyText()">Copy</button>
+        <p id="sizeInfo"></p>
+        <footer>© Alvin Exploit Blackhat</footer>
     </div>
-</div>
-
-<script>
-    function runCode() {
-        let code = document.getElementById("codeEditor").value;
-        let outputFrame = document.getElementById("outputFrame").contentWindow.document;
-        outputFrame.open();
-        outputFrame.write("<script>" + code + "<\/script>");
-        outputFrame.close();
-    }
-</script>
-
+    <script>
+        function obfuscateHtml() {
+            let input = document.getElementById("inputText").value;
+            let encoded = btoa(unescape(encodeURIComponent(input)));
+            let obfuscated = encoded.split('').map(c => String.fromCharCode(c.charCodeAt(0) + 100)).join('');
+            let scriptTag = `<script>(function(){let hex='${obfuscated}';let decoded='';for(let i=0;i<hex.length;i++){decoded+=String.fromCharCode(hex.charCodeAt(i)-100);}document.write(decodeURIComponent(escape(atob(decoded))));})()<\/script>`;
+            document.getElementById("outputText").value = scriptTag;
+            document.getElementById("sizeInfo").innerText = "Ukuran: " + new Blob([scriptTag]).size + " bytes";
+        }
+        function copyText() {
+            let text = document.getElementById("outputText");
+            text.select();
+            document.execCommand("copy");
+            alert("Kode berhasil disalin!");
+        }
+        document.getElementById("toggleAudio").addEventListener("click", function() {
+            let audio = document.getElementById("bgAudio");
+            if (audio.paused) {
+                audio.play();
+                this.innerText = "Pause Music";
+            } else {
+                audio.pause();
+                this.innerText = "Play Music";
+            }
+        });
+    </script>
 </body>
 </html>
